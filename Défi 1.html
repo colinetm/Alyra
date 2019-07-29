@@ -1,0 +1,113 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title> Outil d'analyse bitcoin </title>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" type="text/css" href="defi1.css">
+	</head>
+	<body>
+	<h1> Outil d'analyse bitcoin </h1>
+	<section>
+	<div class="convert">
+		<h3> Conversion nombre decimal en hexadécimal </h3>
+		<label>Décimal :</label> <input type="text" placeholder="0" id="decimal2"><br>
+		<label>Hexadécimal :</label> <span type="text" id="hexadecimal2"></span><br>
+		<button id="convertir">Convertir</button><br>
+	</div>
+	<div class="convert">
+		<h3> Conversion de nombre hexadécimal en décimal </h3>
+		<label>Hexadécimal :</label> <input type="text" placeholder="0" id="hexadecimal3"><br>
+		<label>Décimal : </label><span type="text" id="decimal3"></span><br>
+		<button id="convertHexToDec">Convertir</button><br>
+	</div>
+	<div class="convert">
+		<h3> Conversion de nombre en Little Endian en hexadecimal et décimal </h3>
+		<label>Hexa Little Endian :</label> <input type="text" placeholder="000001FF" id="hle"><br>
+		<label>Hexadecimal : </label><span type="text" id="hexadecimal"></span><br>
+		<label>Decimal :</label><span type="text" id="decimal"></span><br>
+		<button id="convertHexaLE">Convertir</button>
+	</div>
+	<div class="convert">
+		<h3> Conversion d'un champ varInt en décimal </h3>
+		<label>Champ varInt : </label><input type="text" placeholder="0" id="varintin"><br>
+		<label>Décimal :</label> <span type="text" id="decimal4"></span><br>
+		<br>
+		<button id="convertVarInt">Convertir</button>
+	</div>
+	<div class="convert">
+		<h3> Conversion d'un champ bits en la cible correspondante </h3>
+		<label>Champ Bits : </label><input type="text" placeholder="0" id="bits"><br>
+		<label>Cible correspondante :</label> <span type="text" id="cible"></span><br>
+		<label>Difficulté :</label> <span type="text" id="difficulte"></span><br>
+		<button id="convertBits">Convertir</button>
+	</div>
+	<div class="convert">
+		<h3> Conversion de la valeur cible en difficulté </h3>
+		<label>Cible :<Label> <input type="text" placeholder="0" id="cible2"><br>
+		<label>Difficulté : </label><span type="text" id="difficulte2"><br>
+		<br>
+		<button id="convertCible">Convertir</button>
+	</div>
+	</section><br>
+
+	<section>
+	<div class="analyser">
+		<h2> Décomposer une transaction </h2>
+		
+			<label>Champ de la transaction en héxacécimale :</label><br>
+			<textarea name="transactionText" id="transactionText" placeholder="Copier ici la transaction que vous souhaitez analyser" rows="8" cols="60"></textarea><br>
+			<button id="decomposeTransaction">Lancer l'analyse</button><br>
+			<h3> Identification des différents champs de l'entrée </h3>
+			<label>Version : </label><span type="text" id="version"></span><br>
+			<label>Nombre d'entrées :</label><span type="text" id="entrees"></span><br>
+			<label>Hash de la transaction :</label><span type="text" id="input"></span><br>
+			<label>Index de la sortie :</label><span type="text" id="output"></span><br>
+			<label>Longueur du champ ScriptSig sous format varInt :</label><span type="text" id="varintScriptSig"></span><br>
+			<label>Longueur de la signature sous format varInt :</label><span type="text" id="varintSignature"></span><br>
+			<label>Signature :</label><br><span type="text" id="signature"></span><br>
+			<label>Longueur de la clé publique sous format varInt :</label><span type="text" id="varintPubKey"></span><br>
+			<label>Clé publique :</label><br><span type="text" id="pubKey"></span><br>
+			<label>Séquence :</label><span type="text" id="sequence"></span><br>
+			<h3> Identification des transactions de sortie </h3>
+			<label>Nombre de transactions de sortie : </label><span type="text" id="varintOut"></span><br>
+			<label>Transactions : </label><br>
+				<span type="text" id="transaction1"></span><br>
+				<span type="text" id="transaction2"></span><br>
+				<span type="text" id="transaction3"></span><br>
+			<label>Locktime : </label><span type="text" id="locktime"></span><br>
+				<br>
+	</div>
+	<div class="analyser">
+		<h2> Décomposer un bloc </h2>
+		
+			<label>Chaîne hexadecimale du bloc : </label><br>
+			<textarea name="bloc" id="bloc" placeholder="Copier ici la chaîne hexadecimale à décomposer" rows="10" cols="60"></textarea><br>
+			<button id="decomposeBlock">Lancer l'analyse</button><br>
+			<br>
+			<label>Taille du bloc (peu être omis) :</label><span type="text" id="tailleBloc"></span><br>
+			
+			<h3> Identification de l'entête du bloc </h3>
+			<label> Version : </label><span type="text" id="versionEntete"></span><br>
+			<label> Previous block : </label><span type="text" id="previousBlock"></span><br>
+			<label> Racine de l'arbre de Merkle : </label><span type="text" id="arbre"></span><br>
+			<label> Timestamp : </label><span type="text" id="timestamp"></span><br>
+			<label> Bits contenant la cible : </label><span type="text" id="bits"></span><br>
+			<label> Nonce : </label><span type="text" id="nonce"></span><br>
+			
+			<h3> Les transactions </h3>
+			<p> La première transaction est la transaction coinbase. Elle permet d'offrir la récompense en bitcoins au mineur du block, 
+			et participe aussi à la preuve de travail. </p><br>
+			<label>Nombre de transactions : </label><span type="text" id="nombreTransactions"></span><br>
+			
+			<h3> Contenu d'une transaction : </h3>
+			<p><em> Vous trouverez ci-dessous les chaînes hexadécimale des transactions du block. Celle-ci sont séparées par une virgule.</em></p>
+			<label> Transactions :</label><br>
+			<span type="text" id="transactions"></span><br>		
+	</div>				
+	
+	
+	</section>
+		
+	<script src="defi1.js"></script>
+	</body>
+</html>
