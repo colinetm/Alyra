@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <title>Première DApp - Exercices 4.2</title>
+</head>
+
+<body>
+
+ <h1>Première DApp - Exercices 4.2</h1>
+
+ <h2>Exercie 4.2.1 :</h2>
+
+ <button onclick="createMetaMaskDapp()">Connect to MetaMask</button>
+ <button onclick="balance()">Solde</button>
+ <button onclick="getLastBlock()">Dernier bloc</button>
+ <button onclick="getGasPrice()">Prix du gaz</button>
+
+ <p>
+     <ul>
+         <li>Balance : <span id="balance"></span></li>
+         <li>Dernier bloc : <span id="lastblock"></span></li>
+         <li>Prix du gaz : <span id="gasprice"></span></li>
+     </ul>
+ </p>
+
+ <h2>Exercice 4.2.2 :</h2>
+
+ <input type="text" placeholder="Entrer url du devoir" id="urlDevoir">
+ <button onclick="getMyHomework()">Rendre un devoir</button>
+ <button onclick="getMyCredibility()">Afficher ma crédibilité</button>
+ <p>
+     <ul>
+         <li>Condensat du devoir : <span id="hash"></span></li>
+         <li>Ma crédibilité : <span id="cred"></span></li>
+         <li>Ordre de rendu : <span id="Classement"></span></li>
+     </ul>
+ </p>
+
+ <script src="https://cdn.ethers.io/scripts/ethers-v4.min.js"
+       charset="utf-8"
+       type="text/javascript">
+ </script>
+
+  <script src="application.js"
+       charset="utf-8"
+       type="text/javascript">
+ </script>
+
+ </body>
+
+</html>
