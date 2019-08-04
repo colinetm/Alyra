@@ -21,6 +21,7 @@ contract Credibilite {
    }
    
    function remettre(bytes32 dev) public returns(uint){
+       require(cred[msg.sender] == 0);
        devoirs.push(dev);
        
        uint ordre=devoirs.length;
