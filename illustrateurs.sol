@@ -86,12 +86,13 @@ contract MarcheIllustrateurs {
         return illustrateurs;
     }
     
-    function ajouterDemande(string memory entreprise, address demandeur,string memory mail, string memory descriptif, uint notorieteMin, uint remuneration, uint delai) public {
+    function ajouterDemande(string memory entreprise, address demandeur,string memory mail, string memory descriptif, uint notorieteMin, uint remuneration, uint delai) public payable {
         Offre memory nouvelleOffre = Offre(entreprise, demandeur, mail, descriptif, notorieteMin, remuneration, delai, StatutDemande.Ouverte);
         demandes[numOffre]=nouvelleOffre;
         offres.push(Offre(entreprise, demandeur, mail, descriptif, notorieteMin, remuneration, delai, StatutDemande.Ouverte));
         uint montant;
         montant=remuneration.add((remuneration.mul(2)).div(100));
+	montant=msg.value;
         payer(plateformeAdresse, montant);
         numOffre=numOffre++;
     }
