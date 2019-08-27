@@ -129,8 +129,11 @@ async function getMyCredibility(){
 }
 
 async function getMyHomework(){
-  let contratCredibilite = new ethers.Contract(credibilite.address,credibilite.abi,dapp.provider);
-  
+  let contratCredibilite = new ethers.Contract(credibilite.address,credibilite.abi,dapp.provider.getSigner());
+  contratCredibilite.on("Devoir",(hash, emetteur) => {
+    document.getElementById("EventHash").innerHTML='Devoir : '+hash;
+    document.getElementById('EventAdress').innerHTML='Emetteur : '+emetteur;
+  });
   let devoirUrl=document.getElementById("urlDevoir").value;
   let urlHash= await contratCredibilite.produireHash(devoirUrl);
   document.getElementById("hash").innerHTML=urlHash;
