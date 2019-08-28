@@ -14,3 +14,9 @@ Exercices correspondant à la formation Alyra
 
 # Chapitre 4 : Interagir avec un smart contract
 <a href="https://github.com/colinetm/Alyra/blob/master/credibilite.sol"> Rendre son devoir et gagner en crédibilité => credibilite.sol</a><br>
+Intéragir avec le smart contract : <a href="https://github.com/colinetm/Alyra/blob/master/premiereDapp.html"> premiereDapp.html</a> et <a href="https://github.com/colinetm/Alyra/blob/master/application.js">application.js</a><br>
+
+# Défi 2 : Place de marché d'illustrateurs indépendants
+<a href="https://github.com/colinetm/Alyra/blob/master/illustrateurs.sol"> illustrateurs.sol</a><br>
+<a href="https://github.com/colinetm/Alyra/blob/master/illustrateurs.html"> illustrateurs.html</a><br>
+<a href="https://github.com/colinetm/Alyra/blob/master/appillustrateurs.js"> appillustrateurs.js</a><br>
