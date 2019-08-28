@@ -28,6 +28,7 @@ contract MarcheIllustrateurs {
     }
     
     struct Offre {
+        uint NumeroDOffre;
         string Entreprise;
         address Demandeur;
         string Mail;
@@ -90,9 +91,9 @@ contract MarcheIllustrateurs {
     
     function ajouterDemande(string memory entreprise, address demandeur,string memory mail, string memory descriptif, uint notorieteMin, uint remuneration, uint delai) public payable {
         uint[] memory listReponses;
-        Offre memory nouvelleOffre = Offre(entreprise, demandeur, mail, descriptif, notorieteMin, remuneration, delai, StatutDemande.Ouverte, listReponses);
+        Offre memory nouvelleOffre = Offre(numOffre, entreprise, demandeur, mail, descriptif, notorieteMin, remuneration, delai, StatutDemande.Ouverte, listReponses);
         demandes[numOffre]=nouvelleOffre;
-        offres.push(Offre(entreprise, demandeur, mail, descriptif, notorieteMin, remuneration, delai, StatutDemande.Ouverte, listReponses));
+        offres.push(Offre(numOffre, entreprise, demandeur, mail, descriptif, notorieteMin, remuneration, delai, StatutDemande.Ouverte, listReponses));
         uint montant;
         montant=remuneration.add((remuneration.mul(2)).div(100));
         montant=msg.value;

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <title>Place de marché d'illustrateurs indépendants</title>
+</head>
+
+<body>
+
+    <h1>Place de marché d'illustrateurs indépendants</h1>
+
+        <button onclick="createMetaMaskDapp()">Connect to MetaMask</button>
+
+    <h2>Déposer une demande - faire une offre :</h2>
+
+    <p>
+    <input type="text" placeholder="Nom du demandeur (Personne ou Entreprise)" id="entreprise"><br>
+    <input type="text" placeholder="Address du demandeur" id="demandeur"><br>
+    <input type="text" placeholder="Mail du demandeur" id="maildemandeur"><br>
+    <input type="text" placeholder="Entrer le descriptif de la demande" id="descriptif"><br>
+    <input type="text" placeholder="Notoriété minimum demandée" id="notmin"><br>
+    <input type="text" placeholder="Rémunération proposée pour le travail" id="remuneration"><br>
+    <input type="text" placeholder="Délai de réalisation" id="delai"><br>
+    <button onclick="creerDemande()">Soumettre la demande</button>
+    </p>
+
+    <p>
+    <button onclick="voirLesOffres()">Voir les offres</button><br>
+    <span id="offres"></span>
+    </p>
+
+    <h2>Illustrateur : inscrivez-vous!</h2>
+    <p>
+    <input type="text" placeholder="Nom et prénom ou pseudo" id="name"><br>
+    <input type="text" placeholder="Address" id="identification"><br>
+    <input type="text" placeholder="Mail" id="mailillustrateur"><br>
+    <input type="text" placeholder="URL de votre book ou site perso" id="urlbook"><br>
+    <button onclick="inscription()">Soumettre l'inscription</button>
+    </p>
+
+    <p>
+        <button onclick="voirLesIllustrateurs()">Voir les illustrateurs</button><br>
+        <span id="illustrateurs"></span>
+    </p>
+
+    <h2>Postuler à une offre :</h2>
+    <p>
+    <input type="text" placeholder="Numéro de l'offre" id="numoffrepostul"><br>
+    <input type="text" placeholder="Nom ou pseudo" id="namepostulant"><br>
+    <input type="text" placeholder="Address" id="addresspostulant"><br>
+    <button onclick="postulerOffre()">Soumettre sa candidature</button>
+    </p>
+
+    <h2>Afficher les candidatures pour une offre :</h2>
+    <p>
+    <input type="text" placeholder="Numéro de l'offre" id="numoffrecandidatures">
+    <button onclick="afficherCandidatures()">Voir les candidatures pour cette offre</button><br>
+    <label>Numéros des candidatures : </label><span type="text" id="candidatures"></span><br>
+    <label>Voir les détails d'une candidature :</label>
+    <input type="text" placeholder="Numéro de la candidature" id="numcandidature">
+    <button onclick="voirUnCandidat()">Voir le détail</button><br>
+    <span type="text" id="candidature"></span><br>
+    </p>
+
+    <h2>Valider une candidature :</h2>
+    <p>
+    <input type="text" placeholder="Numéro de l'offre" id="numoffrevalid"><br>
+    <input type="text" placeholder="Numéro de candidature" id="numcandidatvalid"><br>
+    <button onclick="validCandidature()">Valider la candidature</button>
+    </p>
+
+    <h2>Livrer son travail : </h2>
+    <p>
+    <input type="text" placeholder="Numéro de l'offre" id="numlivraison"><br>
+    <input type="text" placeholder="URL du travail" id="urllivraison"><br>
+    <input type="text" placeholder="Address de l'illustrateur" id="addresslivraison"><br>
+    <button onclick="rendreTravail()">Livrer</button>
+    </p>
+
+    <p>Si une semaine après le rendu de votre travail votre commanditère n'a pas accepté votre travail, vous pouvez vous faire payer votre dû.<br>
+        <input type="text" placeholder="Numéro de l'offre" id="numoffrepayer"><br>
+        <input type="text" placeholder="Votre address" id="addresspayer"><br>
+        <button onclick="seFairePayer()">Se faire payer</button>
+     </p>
+
+    <h2>Accepter le travail rendu et donner une appréciation</h2>
+
+    <p>Accepter le travail rendu : <br>
+        <input type="text" placeholder="Numéro de l'offre" id="numaccepter">
+        <button onclick="accepterTravail()">Accepter le travail</button> 
+    </p>
+
+    <p>Appréciation du travail rendu : <br>
+        <input type="text" placeholder="Numéro de l'offre" id="numoffreaccepte"><br>
+        <select id="appreciation">
+            <option value="tresbon">Très bon</option>
+            <option value="bon">Bon</option>
+            <option value="correct">Correct</option>
+            <option value="mauvais">Mauvais</option>
+        </select>
+        <button onclick="apprecierTravail()">Valider</button>
+    </p>
+
+    <p>Si l'illustrateur choisi dépasse les délais de livraison imposés, vous pouvez lui infliger une pénalité (baisse de son niveau de notoriété).<br>
+        <input type="text" placeholder="Numéro de l'offre" id="numretard">
+        <button onclick="">Appliquer la pénalité</button>
+    </p>
+
+
+<script src="https://cdn.ethers.io/scripts/ethers-v4.min.js"
+    charset="utf-8"
+    type="text/javascript">
+</script>
+
+<script src="appillustrateurs.js"
+    charset="utf-8"
+    type="text/javascript">
+</script> 
+
+</body>
+</html>
